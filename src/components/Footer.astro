@@ -3,8 +3,76 @@ import metadata from "../data/metadata.json";
 ---
 
 <footer>
-  <small>
-    This project is maintained by <a href="https://www.navillus.dev">Navillus</a>.
-    Check out the <a href={metadata.repo}>GitHub repo</a>.
-  </small>
+  <div class="footer-content">
+    <div class="footer-main">
+      <p>
+        This project is maintained by <a href="https://www.navillus.dev">Navillus</a>.
+        Check out the <a href={metadata.repo}>GitHub repo</a>.
+      </p>
+    </div>
+    <div class="footer-meta">
+      <small>
+        Built with <a href="https://astro.build">Astro</a> • 
+        Theme updated for better UX
+      </small>
+    </div>
+  </div>
 </footer>
+
+<style>
+  footer {
+    background-color: var(--surface);
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+
+  .footer-content {
+    max-width: 65ch;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-main {
+    margin-bottom: 1rem;
+  }
+
+  .footer-main p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .footer-meta {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .footer-meta small {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+
+  footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (min-width: 768px) {
+    .footer-content {
+      max-width: 70ch;
+      padding: 2.5rem 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .footer-content {
+      max-width: 75ch;
+    }
+  }
+</style>

@@ -15,10 +15,12 @@ export let section: string;
   </head>
   <body>
     <header>
-      <em>
-        <a href="/">{metadata.title}</a>
-      </em>
-      <Nav />
+      <div class="header-content">
+        <div class="logo">
+          <a href="/">{metadata.title}</a>
+        </div>
+        <Nav />
+      </div>
     </header>
 
     <main>
@@ -28,6 +30,53 @@ export let section: string;
     <Footer />
   </body>
 </html>
+
+<style>
+  header {
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .header-content {
+    max-width: 65ch;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .logo a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    transition: color 0.2s ease;
+  }
+
+  .logo a:hover {
+    color: var(--primary);
+  }
+
+  @media screen and (min-width: 768px) {
+    .header-content {
+      max-width: 70ch;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .header-content {
+      max-width: 75ch;
+    }
+  }
+</style>
 
 <script>
   if (window.netlifyIdentity) {
