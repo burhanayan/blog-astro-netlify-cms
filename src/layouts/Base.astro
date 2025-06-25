@@ -17,7 +17,7 @@ export let section: string;
     <header>
       <div class="header-content">
         <div class="logo">
-          <a href="/">{metadata.title}</a>
+          <a href="/" aria-label="Home" class="logo-text">Burhan Ayan</a>
         </div>
         <Nav />
       </div>
@@ -36,6 +36,8 @@ export let section: string;
     background-color: var(--background);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow);
+    padding-top: 0.01rem;
+    padding-bottom: 0.5rem;
   }
 
   .header-content {
@@ -43,31 +45,65 @@ export let section: string;
     margin: 0 auto;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    min-height: 48px;
+  }
+
+  .logo {
+    flex-shrink: 0;
+    min-width: unset;
   }
 
   .logo a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 2.25rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    transition: background 0.2s;
+    margin: 0;
+    padding: 0;
   }
 
   .logo a:hover {
-    color: var(--primary);
+    background: #f3f4f6;
+  }
+
+  .logo svg {
+    display: block;
+    margin: auto;
+    color: #2563eb;
+    width: 16px;
+    height: 16px;
+  }
+
+  nav {
+    margin-top: 0;
+  }
+
+  .header-content ul {
+    gap: 0.2rem !important;
+  }
+
+  .header-content a {
+    font-size: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
 
   @media screen and (min-width: 768px) {
     .header-content {
       max-width: 70ch;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
   }
 
@@ -75,6 +111,33 @@ export let section: string;
     .header-content {
       max-width: 75ch;
     }
+  }
+
+  .logo-text {
+    color: #2563eb;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    padding: 0.1rem 0.7rem;
+    border-radius: 0.3rem;
+    background: none;
+    box-shadow: none;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+  }
+  .logo-text:hover {
+    background: #f3f4f6;
+    color: #1d4ed8;
+    text-decoration: none;
+  }
+
+  .logo, .logo-text {
+    box-shadow: none !important;
+    background: none !important;
   }
 </style>
 

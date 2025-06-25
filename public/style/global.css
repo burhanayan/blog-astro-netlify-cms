@@ -207,3 +207,14 @@ li {
     max-width: 75ch;
   }
 }
+
+.btn,
+.btn-primary,
+.btn-secondary {
+  text-decoration: none !important;
+}
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  text-decoration: none !important;
+}
