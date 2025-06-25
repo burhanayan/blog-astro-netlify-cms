@@ -30,6 +30,7 @@ const authorUrl = `/author/${slug(content.author)}`;
     {content.tags && (
       <TagsList tags={content.tags} />
     )}
+    <Giscus />
   </article>
 
   <nav>
