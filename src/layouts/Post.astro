@@ -6,29 +6,38 @@ import { slug } from '../utils/slug';
 import Giscus from "../components/Giscus.astro";
 
 export let content: {
-    date: string,
-    summary: string,
-    section: string,
-    title: string,
-    description: string,
-    tags: string[]
+    date?: string,
+    summary?: string,
+    section?: string,
+    title?: string,
+    description?: string,
+    tags?: string[],
+    author?: string
 }
 
-const authorUrl = `/author/${slug(content.author)}`;
+const authorUrl = content?.author ? `/author/${slug(content.author)}` : '#';
 ---
 
-<Layout title={content.title} description={content.description}>
+<Layout title={content?.title || 'Untitled'} description={content?.description || ''}>
   <article>
-    <h1>{content.title}</h1>
+    <h1>{content?.title || 'Untitled'}</h1>
     <p>
       <small>
-        <time datetime={machineDate(content.date)}>{readableDate(content.date)}</time> by <a href={authorUrl}>{content.author}</a>
+        {content?.date ? (
+          <time datetime={machineDate(content.date)}>{readableDate(content.date)}</time>
+        ) : 'No date'}
+        {content?.author && (
+          <>
+            <span> by </span>
+            <a href={authorUrl}>{content.author}</a>
+          </>
+        )}
       </small>
     </p>
 
     <slot />
 
-    {content.tags && (
+    {Array.isArray(content?.tags) && content.tags.length > 0 && (
       <TagsList tags={content.tags} />
     )}
     <Giscus />
