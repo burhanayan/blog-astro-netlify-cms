@@ -45,13 +45,11 @@ export async function createCollection() {
 }
 ---
 
-<Layout title={collection.params.title} description={collection.params.description}>
-    <h1>{collection.params.title}</h1>
-
-    {collection.data.map((post) => (
+<Layout title={collection?.params?.title ?? 'Author'} description={collection?.params?.description ?? ''}>
+    <h1>{collection?.params?.title ?? 'Author'}</h1>
+    {Array.isArray(collection?.data) && collection.data.map((post) => (
         <PostPreview post={post} />
     ))}
-
     <nav>
         <a href="/authors">← Authors index</a>
     </nav>
