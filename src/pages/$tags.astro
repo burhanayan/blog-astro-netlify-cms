@@ -16,8 +16,8 @@ export async function createCollection() {
             .flat()
     );
 
-    const title = (tag) => `Tagged “${tag}”`;
-    const description = (tag) => `All posts from the Blog tagged with “${tag}”`;
+    const title = (tag) => `Tagged "${tag}"`;
+    const description = (tag) => `All posts from the Blog tagged with "${tag}"`;
 
     return {
         // `routes` defines the total collection of routes as data objects.
@@ -49,12 +49,12 @@ export async function createCollection() {
 }
 ---
 
-<Layout title={collection.params.title} description={collection.params.description}>
-    <h1>{collection.params.title}</h1>
+<Layout title={collection?.params?.title || 'Tags'} description={collection?.params?.description || 'Posts by tag'}>
+    <h1>{collection?.params?.title || 'Tags'}</h1>
 
-    {collection.data.map((post) => (
+    {collection?.data?.map((post) => (
         <PostPreview post={post} />
-    ))}
+    )) || <p>No posts found for this tag.</p>}
 
     <nav>
         <a href="/blog">← Blog index</a>
