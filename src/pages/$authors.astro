@@ -30,7 +30,7 @@ export async function createCollection() {
     <h1>{title}</h1>
 
     <section>
-        {collection.data.map((author) => (
+        {Array.isArray(collection?.data) && collection.data.map((author) => (
             <article>
                 <h3>
                     <a href={`/author/${slug(author)}`}>{author}</a>
