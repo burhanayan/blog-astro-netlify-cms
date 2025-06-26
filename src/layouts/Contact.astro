@@ -9,8 +9,8 @@ export let content: {
 }
 ---
 
-<Layout title={content.title} description={content.description} section={content.description}>
-    <h1>{content.title}</h1>
+<Layout title={content?.title || 'Contact'} description={content?.description || 'Contact us'} section={content?.description || 'contact'}>
+    <h1>{content?.title || 'Contact'}</h1>
 
     <slot />
 
